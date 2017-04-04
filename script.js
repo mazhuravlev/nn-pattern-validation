@@ -31,7 +31,11 @@ function gen(size) {
 let formulaInput;
 
 function isGood(data) {
-	return eval('(function(){'+formulaInput.val()+'})();');
+	try {
+		return eval('(function(){'+formulaInput.val()+'})();');
+	} catch(e) {
+		alert('Ошибка в формуле');
+	}
 }
 
 function draw(data) {
